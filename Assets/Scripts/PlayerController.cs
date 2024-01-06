@@ -36,16 +36,6 @@ public class PlayerController : MonoBehaviour
         {
             FlipFace();
         }
-        if (Input.GetKeyDown("space"))
-        {
-            playerAnimator.SetBool("attack", true);
-
-        }
-
-        if (Input.GetKeyUp("space"))
-        {
-            playerAnimator.SetBool("attack", false);
-        }
         if (Input.GetKeyDown("w") && isGrounded && (nextJumpTime<Time.timeSinceLevelLoad))
         {
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
