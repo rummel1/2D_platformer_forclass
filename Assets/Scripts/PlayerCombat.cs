@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -9,27 +10,37 @@ public class PlayerCombat : MonoBehaviour
 
     public float attackRange = 0.5f;
     public Transform attackPoint;
-    public LayerMask enemyLayers;
+    public LayerMask enemyLayers; 
+    public float blockAttack = 0.9f;
     
+    private float _nextAttackTime = 0f;
     private int _attacakDamage=30;
-    void Start()
+    void Update()
     {
+        if (Time.time >= _nextAttackTime)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                 
+                animator.SetTrigger("Attack");
+              PlayerController.moveSpeed = 0.1f;
+              StartCoroutine(slowCharacter());
+              _nextAttackTime = Time.time + blockAttack;
+              
+            }
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator slowCharacter()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Attack();
-        }
+        yield return new WaitForSeconds(0.6f);
+        PlayerController.moveSpeed = 8;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
     private void Attack()
     {
-        animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)

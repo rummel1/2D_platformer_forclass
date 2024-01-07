@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D playerRB;
     Animator playerAnimator;
-    public float moveSpeed = 1f;
-    public float jumpSpeed = 1f, jumpFrequency=1f, nextJumpTime;
+    public static float moveSpeed = 8f;
+    public static float jumpSpeed = 250f, jumpFrequency=0.1f, nextJumpTime;
 
     bool facingRight = true;
 
