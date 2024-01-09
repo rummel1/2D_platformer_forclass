@@ -11,7 +11,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public Transform attackPoint;
     public LayerMask enemyLayers; 
-    public float blockAttack = 0.9f;
+    public LayerMask BossLayers;
+    public static float blockAttack = 0.9f;
     
     private float _nextAttackTime = 0f;
     private int _attacakDamage=30;
@@ -21,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                 
+                animator.SetTrigger("Enraged");
                 animator.SetTrigger("Attack");
               PlayerController.moveSpeed = 0.1f;
               StartCoroutine(slowCharacter());
@@ -34,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator slowCharacter()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         PlayerController.moveSpeed = 8;
     }
 
@@ -46,6 +47,13 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
           enemy.GetComponent<EnemyHit>().TakeDamage(_attacakDamage);
+
+        }
+        Collider2D[] hitBosses = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, BossLayers);
+
+        foreach (Collider2D boss in hitBosses)
+        {
+           boss.GetComponent<Boss_hit>().BossTakeDamage(_attacakDamage);
         }
         
     }

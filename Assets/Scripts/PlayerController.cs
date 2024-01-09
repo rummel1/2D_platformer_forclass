@@ -59,12 +59,12 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    void HorizontalMove()//sað ve sol hareket
+    void HorizontalMove()
     {
         playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, playerRB.velocity.y);
         playerAnimator.SetFloat("playerSpeed", Mathf.Abs(playerRB.velocity.x));
     }
-    void FlipFace()//saða sola giderken yüzün nereye bakacaðýný anlayan fonksiyon
+    void FlipFace()
         {
         facingRight = !facingRight;
         Vector3 tempLocalScale = transform.localScale;
