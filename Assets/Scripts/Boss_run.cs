@@ -21,7 +21,7 @@ public class Boss_run : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Player_health.health > 0)
+        if (Player_health.currentHealth > 0)
         {
             _boss.LookAtPlayer();
                     Vector2 target = new Vector2(_player.position.x, _rb.position.y);

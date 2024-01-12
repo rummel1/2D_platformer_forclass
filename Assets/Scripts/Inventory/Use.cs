@@ -21,35 +21,39 @@ public class Use : MonoBehaviour
             _inventory.isFull[i] = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1)&& Player_health.currentHealth<96)
         {
             foreach (Transform child in _inventory.slots[0].transform)
             {
                 Destroy(child.gameObject);
+                Player_health.currentHealth += 5;
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2)&& Player_health.currentHealth<96)
         {
             foreach (Transform child in _inventory.slots[1].transform)
             {
                 Destroy(child.gameObject);
+                Player_health.currentHealth += 5;
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3)&& Player_health.currentHealth<96)
         {
             foreach (Transform child in _inventory.slots[2].transform)
             {
                 Destroy(child.gameObject);
+                Player_health.currentHealth += 5;
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4)&& Player_health.currentHealth<96)
         {
             foreach (Transform child in _inventory.slots[3].transform)
             {
                 Destroy(child.gameObject);
+                Player_health.currentHealth += 5;
             }
            
         }

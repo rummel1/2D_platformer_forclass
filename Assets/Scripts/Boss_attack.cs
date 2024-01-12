@@ -14,7 +14,7 @@ public class Boss_attack : MonoBehaviour
     
     	public void Attack()
     	{
-	        if (Player_health.health > 0)
+	        if (Player_health.currentHealth > 0)
 	        {
 		        Vector3 pos = transform.position;
 		        pos += transform.right * attackOffset.x;
