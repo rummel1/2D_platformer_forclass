@@ -21,7 +21,7 @@ public class Use : MonoBehaviour
             _inventory.isFull[i] = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha1)&& Player_health.currentHealth<96)
+        if (Input.GetKeyDown(KeyCode.Alpha1)&& Player_health.currentHealth is < 96 and > 0 )
         {
             foreach (Transform child in _inventory.slots[0].transform)
             {
@@ -30,7 +30,7 @@ public class Use : MonoBehaviour
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2)&& Player_health.currentHealth<96)
+        if (Input.GetKeyDown(KeyCode.Alpha2)&&Player_health.currentHealth is < 96 and > 0 )
         {
             foreach (Transform child in _inventory.slots[1].transform)
             {
@@ -39,7 +39,7 @@ public class Use : MonoBehaviour
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3)&& Player_health.currentHealth<96)
+        if (Input.GetKeyDown(KeyCode.Alpha3)&&Player_health.currentHealth is < 96 and > 0 )
         {
             foreach (Transform child in _inventory.slots[2].transform)
             {
@@ -48,7 +48,7 @@ public class Use : MonoBehaviour
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4)&& Player_health.currentHealth<96)
+        if (Input.GetKeyDown(KeyCode.Alpha4)&& Player_health.currentHealth is < 96 and > 0 )
         {
             foreach (Transform child in _inventory.slots[3].transform)
             {

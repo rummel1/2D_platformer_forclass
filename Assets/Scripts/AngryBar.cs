@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class AngryBar : MonoBehaviour
 {
+    // Start is called before the first frame update
     public Slider slider;
     public Gradient gradient;
 
@@ -12,7 +13,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.value = 1f;
+        slider.value = 0f;
     }
 
     // Update is called once per frame
@@ -20,15 +21,15 @@ public class HealthBar : MonoBehaviour
     {
         
     }
-    public void SetHealth(int health)
+    public void SetValue(int value)
     {
-        slider.value = health;
+        slider.value = value;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     } 
-    public void SetMaxHealth(int health)
+    public void SetMinValue(int value)
     {
-        slider.value = health;
-        slider.maxValue = health;
-       fill.color= gradient.Evaluate(1f);
+        slider.value = value;
+        slider.minValue = value;
+        fill.color= gradient.Evaluate(1f);
     }
 }
