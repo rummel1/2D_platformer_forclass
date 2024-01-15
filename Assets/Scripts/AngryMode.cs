@@ -26,7 +26,7 @@ public class AngryMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_iValue >= 100 && Input.GetKeyDown(KeyCode.E))
+        if (_iValue >= 100 && Player_health.currentHealth>0 && Input.GetKeyDown(KeyCode.E))
         {
             _animator.SetBool("ControlEnraged",true);
             PlayerCombat.blockAttack = 0.2f;
