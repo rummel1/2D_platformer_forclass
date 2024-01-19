@@ -44,9 +44,9 @@ public class AngryMode : MonoBehaviour
 
     IEnumerator UpdateNumber()
     {
-        for (int i = 1; i < 11; i++)
+        for (int i = 1; i < 26; i++)
         {
-            _iValue = i * 10;
+            _iValue = i * 4;
             angryBar.SetValue(_iValue);
             yield return new WaitForSeconds(1f);
             Debug.Log("sayı"+_iValue);

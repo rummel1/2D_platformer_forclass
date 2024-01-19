@@ -34,7 +34,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag =="MainPlayer")
+        if (other.CompareTag("MainPlayer"))
         {
             TriggerDialogue();
         }

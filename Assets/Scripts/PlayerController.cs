@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerRB;
     Animator playerAnimator;
     public static float moveSpeed = 8f;
-    public static float jumpSpeed = 250f, jumpFrequency=0.1f, nextJumpTime;
+    public static float jumpSpeed = 210f, jumpFrequency=0.1f, nextJumpTime;
 
     bool facingRight = true;
 
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheckPosition;
     public float groundCheckRadius;
     public LayerMask groundCheckLayer;
+    
 
     void Start()
     {
@@ -26,6 +27,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.Instance.isDialogueActive)
+        {
+            playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            playerRB.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+            playerRB.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+        }
+
+
         HorizontalMove();
         OnGroundCheck();
         if (playerRB.velocity.x < 0 && facingRight)
@@ -43,20 +55,15 @@ public class PlayerController : MonoBehaviour
             doubleJump = true;
             doublejumpkont = false;
             playerAnimator.SetBool("doublejump", doublejumpkont);
-
-
-
+            
         }
         else if (Input.GetKeyDown("w") && doubleJump==true && (nextJumpTime < Time.timeSinceLevelLoad))
         {
-            Debug.Log("eren");
             Jump();
             doublejumpkont = true;
             doubleJump = false;
             playerAnimator.SetBool("doublejump", doublejumpkont);
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
-            
-
         }
     }
     void HorizontalMove()
@@ -74,7 +81,6 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
        playerRB.AddForce(new Vector2(0, jumpSpeed));
-                
     }
     void OnGroundCheck()
     {

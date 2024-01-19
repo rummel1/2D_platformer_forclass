@@ -25,8 +25,12 @@ public class Use : MonoBehaviour
         {
             foreach (Transform child in _inventory.slots[0].transform)
             {
-                Destroy(child.gameObject);
-                Player_health.currentHealth += 5;
+                if (child.CompareTag("Potion"))
+                {
+                     Destroy(child.gameObject);
+                     Player_health.currentHealth += 5;
+                }
+               
             }
            
         }
@@ -34,8 +38,11 @@ public class Use : MonoBehaviour
         {
             foreach (Transform child in _inventory.slots[1].transform)
             {
-                Destroy(child.gameObject);
-                Player_health.currentHealth += 5;
+                if (child.CompareTag("Potion"))
+                {
+                    Destroy(child.gameObject);
+                    Player_health.currentHealth += 5;
+                }
             }
            
         }
@@ -43,8 +50,11 @@ public class Use : MonoBehaviour
         {
             foreach (Transform child in _inventory.slots[2].transform)
             {
-                Destroy(child.gameObject);
-                Player_health.currentHealth += 5;
+                if (child.CompareTag("Potion"))
+                {
+                    Destroy(child.gameObject);
+                    Player_health.currentHealth += 5;
+                }
             }
            
         }
@@ -52,8 +62,11 @@ public class Use : MonoBehaviour
         {
             foreach (Transform child in _inventory.slots[3].transform)
             {
-                Destroy(child.gameObject);
-                Player_health.currentHealth += 5;
+                if (child.CompareTag("Potion"))
+                {
+                    Destroy(child.gameObject);
+                    Player_health.currentHealth += 5;
+                }
             }
            
         }
