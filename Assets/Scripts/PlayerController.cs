@@ -29,12 +29,13 @@ public class PlayerController : MonoBehaviour
     {
         if (DialogueManager.Instance.isDialogueActive)
         {
-            playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
+            playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
         else
         {
             playerRB.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-            playerRB.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+            playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
 

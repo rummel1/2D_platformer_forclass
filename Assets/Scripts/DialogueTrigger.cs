@@ -25,6 +25,7 @@ public class Dialogue
 }
 public class DialogueTrigger : MonoBehaviour
 {
+    public GameObject CanvasF;
     public Dialogue dialogue;
 
     public void TriggerDialogue()
@@ -34,9 +35,28 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.CompareTag("MainPlayer"))
         {
-            TriggerDialogue();
+            CanvasF.SetActive(true);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("MainPlayer"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            { 
+                CanvasF.SetActive(false);
+                TriggerDialogue();
+            }
+           
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        CanvasF.SetActive(false);
     }
 }

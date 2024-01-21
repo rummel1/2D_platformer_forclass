@@ -7,6 +7,7 @@ public class ChangeSetActive : MonoBehaviour
 {
     public GameObject gameObject1;
     public GameObject gameObject2;
+    public GameObject UseSword;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,7 @@ public class ChangeSetActive : MonoBehaviour
         {
             gameObject1.SetActive(false);
             gameObject2.SetActive(true);
+            UseSword.SetActive(true);
             Destroy(gameObject);
         }
         
