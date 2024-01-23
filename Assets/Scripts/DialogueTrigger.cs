@@ -46,7 +46,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("MainPlayer"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKey(KeyCode.F))
             { 
                 CanvasF.SetActive(false);
                 TriggerDialogue();

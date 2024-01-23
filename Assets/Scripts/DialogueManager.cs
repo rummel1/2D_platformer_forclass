@@ -23,8 +23,6 @@ public class DialogueManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-
-    // Update is called once per frame
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
