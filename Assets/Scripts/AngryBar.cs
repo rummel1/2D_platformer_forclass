@@ -13,7 +13,7 @@ public class AngryBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.value = 0f;
+        slider.value = 100f;
     }
 
     // Update is called once per frame

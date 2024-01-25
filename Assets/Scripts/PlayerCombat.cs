@@ -16,12 +16,14 @@ public class PlayerCombat : MonoBehaviour
     
     private float _nextAttackTime = 0f;
     private int _attacakDamage=30;
+    [SerializeField] private AudioClip _attacksound;
     void Update()
     {
         if (Time.time >= _nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                SoundManager.instance.PlaySound(_attacksound);
                 animator.SetTrigger("Enraged");
                 animator.SetTrigger("Attack");
               PlayerController.moveSpeed = 0.1f;

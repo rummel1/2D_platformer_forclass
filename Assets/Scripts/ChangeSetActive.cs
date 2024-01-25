@@ -14,9 +14,10 @@ public class ChangeSetActive : MonoBehaviour
         if (other.CompareTag("MainPlayer"))
         {
             gameObject1.SetActive(false);
-            gameObject2.SetActive(true);
-            UseSword.SetActive(true);
-            Destroy(gameObject);
+                gameObject2.SetActive(true);
+                UseSword.SetActive(true);
+                Destroy(gameObject);
+
         }
         
     }

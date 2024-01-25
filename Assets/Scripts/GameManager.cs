@@ -8,13 +8,12 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     private Rigidbody2D rb;
     private Vector2 playerCheckpointPosition;
+    
+    public Animator animator;
+    
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            RespawnPlayer();
-        }
     }
 
     void Awake()
@@ -39,7 +38,10 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        animator.SetBool("Death",false);
         Player.transform.position = playerCheckpointPosition;
         rb.velocity = Vector2.zero;
+        Player_health.currentHealth = 100;
+        Player.GetComponent<PlayerController>().enabled = true;
     }
 }

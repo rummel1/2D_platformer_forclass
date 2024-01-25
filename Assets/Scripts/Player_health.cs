@@ -10,11 +10,13 @@ public class Player_health : MonoBehaviour
     public static int currentHealth;
     public Animator animator;
     public HealthBar healthBar;
+    private UIManager UIManager;
 
     private void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        UIManager = FindObjectOfType<UIManager>();
     }
 
     private void Update()
@@ -25,6 +27,7 @@ public class Player_health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log("health"+currentHealth);
         healthBar.SetHealth(currentHealth);
         animator.SetTrigger("Damage");
         Debug.Log("player hit");
@@ -32,6 +35,7 @@ public class Player_health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            UIManager.GameOver();
         }
     }
 

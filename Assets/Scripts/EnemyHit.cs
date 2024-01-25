@@ -7,6 +7,7 @@ public class EnemyHit : MonoBehaviour
     public Animator animator;
     public int maxHealth = 100;
     private int _currentHealth;
+    [SerializeField] private AudioClip _enemyHit;
     void Start()
     {
         _currentHealth = maxHealth;
@@ -16,7 +17,7 @@ public class EnemyHit : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-
+        SoundManager.instance.PlaySound(_enemyHit);
         animator.SetTrigger("Hurt");
         
         if (_currentHealth<=0)
