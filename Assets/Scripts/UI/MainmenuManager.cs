@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class MainmenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject setting;
+
+    public void Start()
+    {
+    }
 
     public void play()
     {

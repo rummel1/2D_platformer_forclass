@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerRB;
     Animator playerAnimator;
     public static float moveSpeed = 8f;
-    public static float jumpSpeed = 210f, jumpFrequency=0.1f, nextJumpTime;
+    public static float jumpSpeed = 223f, jumpFrequency=0.1f, nextJumpTime;
 
     bool facingRight = true;
 

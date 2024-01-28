@@ -9,6 +9,7 @@ public class Boss_hit : MonoBehaviour
     public int maxHealth = 100;
     private int _currentHealth;
     [SerializeField] private AudioClip _bosshit;
+    [SerializeField] private AudioClip _bossdeath;
     void Start()
     {
         _currentHealth = maxHealth;
@@ -24,6 +25,7 @@ public class Boss_hit : MonoBehaviour
         
         if (_currentHealth<=0)
         {
+            SoundManager.instance.PlaySound(_bossdeath);
             Die();
         }
     }

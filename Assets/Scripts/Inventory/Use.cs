@@ -7,6 +7,7 @@ public class Use : MonoBehaviour
 {
     private Inventory _inventory;
     public int i;
+    [SerializeField] private AudioClip _usePotion;
   
     void Start()
     {
@@ -30,6 +31,7 @@ public class Use : MonoBehaviour
                 {
                      Destroy(child.gameObject);
                      Player_health.currentHealth += 5;
+                     SoundManager.instance.PlaySound(_usePotion);
                 }
                
             }
@@ -43,6 +45,7 @@ public class Use : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                     Player_health.currentHealth += 5;
+                    SoundManager.instance.PlaySound(_usePotion);
                 }
             }
            
@@ -55,6 +58,7 @@ public class Use : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                     Player_health.currentHealth += 5;
+                    SoundManager.instance.PlaySound(_usePotion);
                 }
             }
            
@@ -67,6 +71,7 @@ public class Use : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                     Player_health.currentHealth += 5;
+                    SoundManager.instance.PlaySound(_usePotion);
                 }
             }
            

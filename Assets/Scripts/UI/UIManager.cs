@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +18,16 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_escPanel.activeSelf)
+            {
                 ClosePanel();
+                _settingPanel.SetActive(false);
+            }
+            
             else
+            {
                 OpenPanel();
+            }
+                
         }
     }
 
@@ -36,6 +45,7 @@ public class UIManager : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Main_menu");
     }
     public void InGameSettings()

@@ -10,6 +10,7 @@ TagManager:
   - Boss
   - Inventory
   - Potion
+  - Audio
   layers:
   - Default
   - TransparentFX

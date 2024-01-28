@@ -8,6 +8,7 @@ public class EnemyHit : MonoBehaviour
     public int maxHealth = 100;
     private int _currentHealth;
     [SerializeField] private AudioClip _enemyHit;
+    [SerializeField] private AudioClip _enemyDeath;
     void Start()
     {
         _currentHealth = maxHealth;
@@ -23,6 +24,7 @@ public class EnemyHit : MonoBehaviour
         if (_currentHealth<=0)
         {
             Die();
+            SoundManager.instance.PlaySound(_enemyDeath);
         }
     }
 
