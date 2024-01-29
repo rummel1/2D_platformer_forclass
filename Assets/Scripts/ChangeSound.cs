@@ -16,7 +16,7 @@ public class ChangeSound : MonoBehaviour
         _soundManager = FindObjectOfType<SoundManager>();
         _soundSource = _soundManager.GetComponent<AudioSource>();
         _musicSource = _soundManager.transform.GetChild(0).GetComponent<AudioSource>();
-
+        
     }
 
     private void Update()

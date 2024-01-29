@@ -43,4 +43,9 @@ public class GameManager : MonoBehaviour
         Player_health.currentHealth = 100;
         Player.GetComponent<PlayerController>().enabled = true;
     }
+
+    public void FallRespawn()
+    {
+        Player.transform.position = playerCheckpointPosition;
+    }
 }
