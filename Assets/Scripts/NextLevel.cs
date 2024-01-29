@@ -19,9 +19,17 @@ public class NextLevel : MonoBehaviour
         if (other.CompareTag("MainPlayer"))
         {
             if (Input.GetKey(KeyCode.F))
-            { 
-               F.SetActive(false);
-               SceneManager.LoadScene("Level_2");
+            {
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level_2"))
+                {
+                    SceneManager.LoadScene("Main_menu");
+                }
+                else
+                {
+                    F.SetActive(false);
+                    SceneManager.LoadScene("Level_2");
+                }
+               
             }
            
         }

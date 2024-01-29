@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerRB;
     Animator playerAnimator;
     public static float moveSpeed = 8f;
-    public static float jumpSpeed = 223f, jumpFrequency=0.1f, nextJumpTime;
+    public static float jumpSpeed = 223f, jumpFrequency=0f, nextJumpTime;
 
     bool facingRight = true;
 
@@ -49,16 +49,15 @@ public class PlayerController : MonoBehaviour
         {
             FlipFace();
         }
-        if (Input.GetKeyDown("w") && isGrounded && (nextJumpTime<Time.timeSinceLevelLoad))
+        if (Input.GetKeyDown("w") && isGrounded)
         {
-            nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
-           Jump();
+            Jump();
             doubleJump = true;
             doublejumpkont = false;
             playerAnimator.SetBool("doublejump", doublejumpkont);
             
         }
-        else if (Input.GetKeyDown("w") && doubleJump==true && (nextJumpTime < Time.timeSinceLevelLoad))
+        else if (Input.GetKeyDown("w") && doubleJump==true)
         {
             Jump();
             doublejumpkont = true;
